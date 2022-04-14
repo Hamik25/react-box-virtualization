@@ -68,10 +68,10 @@ interface ICoordinatesMap {
 | viewportWidth | Text | string | '100%' | no |
 | boxGap | Text | number | 0 | no |
 
-## Demo
+## Demos
 Here's a boxes with random positions and sizes [Code Sandbox demo](https://codesandbox.io/s/musing-saha-tcl5od) rendered by lazy render concept.<br/>
 Here's a boxes with grid layout [Code Sandbox demo](https://codesandbox.io/s/musing-saha-tcl5od) rendered by virtualization concept.
 
 ## License
 
-MIT © [Hamik25](https://github.com/Hamik25)
+[MIT Licensed](https://github.com/Hamik25/react-box-virtualization/blob/main/LICENSE) © 2022 [Hamik25](https://github.com/Hamik25)
