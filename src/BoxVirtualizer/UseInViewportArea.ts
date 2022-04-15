@@ -1,10 +1,7 @@
 import { useState } from 'react';
 
 import { IPoint, IRectangle } from './types';
-
-function isPointInRectangle({ x1, x2, y1, y2 }: IRectangle, { x, y }: IPoint) {
-    return x > x1 && x < x2 && y > y1 && y < y2;
-}
+import { isPointInRectangle } from './utils';
 
 export function useInViewportArea(isVirtualized: boolean) {
     const [matchedBoxes, setMatchedBoxes] = useState<any[]>([]);
