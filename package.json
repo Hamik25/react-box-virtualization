@@ -1,6 +1,6 @@
 {
   "name": "react-box-virtualization",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Small component to help quickly virtualize boxes with different sizes and positions. Component support two types of rendering connects virtualized render and lazy render.",
   "author": "Hamik Hambardzumyan <hamikhambardumyan25@gmail.com> (https://github.com/Hamik25/)",
   "contributors": [
