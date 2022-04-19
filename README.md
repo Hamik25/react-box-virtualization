@@ -4,7 +4,7 @@
 
 React box virtualizer works by only **rendering part** of a large datasets.
 1. It reduces the memory footprint by avoiding the over-allocation of DOM nodes.
-2. It reduces the CPU load by avoiding calculating custom boxes positions initially.
+2. It reduces the CPU load by avoiding, calculating positions, and rendering all boxes immediately.
 
 Below you can find a small diagram which is reflected the impact of react box virtualization. <br/>
 Only boxes whose coordinates are in the viewport are will be rendered.
