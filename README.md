@@ -9,6 +9,9 @@ React box virtualizer works by only **rendering part** of a large datasets.
 Below you can find a small diagram which is reflected the impact of react box virtualization. <br/>
 Only boxes whose coordinates are in the viewport are will be rendered.
 
+[![NPM registry](https://img.shields.io/npm/v/react-box-virtualization?style=for-the-badge&color=red)](https://www.npmjs.com/package/react-box-virtualization)
+[![License](https://img.shields.io/badge/license-mit-green.svg?style=for-the-badge)](https://github.com/Hamik25/react-box-virtualization/blob/update-readme/LICENSE)
+
 ![react-box-virtualization-1](https://user-images.githubusercontent.com/8737693/162615668-6aff5646-1022-4e5d-85f1-a155cbd53f6d.png)
 
 ## Install
