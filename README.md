@@ -73,7 +73,7 @@ interface ICoordinatesMap {
 
 ## Demos
 Here's a boxes with random positions and sizes [Code Sandbox demo](https://codesandbox.io/s/musing-saha-tcl5od) rendered by lazy render concept.<br/>
-Here's a boxes with grid layout [Code Sandbox demo](https://codesandbox.io/s/musing-saha-tcl5od) rendered by virtualization concept.
+Here's a boxes with grid layout [Code Sandbox demo](https://codesandbox.io/s/wizardly-germain-5depzp?file=/src/App.tsx) rendered by virtualization concept.
 
 ## License
 
