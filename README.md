@@ -72,8 +72,8 @@ interface ICoordinatesMap {
 | boxGap | Text | number | 0 | no |
 
 ## Demos
-Here's a boxes with random positions and sizes [Code Sandbox demo](https://codesandbox.io/s/musing-saha-tcl5od) rendered by lazy render concept.<br/>
-Here's a boxes with grid layout [Code Sandbox demo](https://codesandbox.io/s/wizardly-germain-5depzp?file=/src/App.tsx) rendered by virtualization concept.
+Here's a boxes with random positions and sizes [Code Sandbox demo](https://codesandbox.io/s/elegant-snowflake-ddtk4z?file=/src/components/VisualizableContent.js) rendered by lazy render concept. (Dataset size 1.000.000 boxes)<br/>
+Here's a boxes with grid layout [Code Sandbox demo](https://codesandbox.io/s/wizardly-germain-5depzp?file=/src/components/VisualizableContent.tsx) rendered by virtualization concept. (Dataset size 100.000 boxes)
 
 ## License
 
