@@ -63,13 +63,13 @@ interface ICoordinatesMap {
 
 | Prop name | Description | Type | Default value | Required |
 | ----------- | ----------- | ----------- | ----------- | ----------- |
-| data | Text | any | - | yes |
-| coordinatesMap | Text | ICoordinatesMap | - | yes |
-| visualizableContent | Text | React.FC | - | yes |
-| isVirtualized | Text | boolean | true | no |
-| viewportHeight | Text | string | '100%' | no |
-| viewportWidth | Text | string | '100%' | no |
-| boxGap | Text | number | 0 | no |
+| data | Array of objects | any[] | - | yes |
+| coordinatesMap | Map object for mapping data item property to CSS visual property | ICoordinatesMap | - | yes |
+| visualizableContent | React component which will receive data item object as props | React.FC | - | yes |
+| isVirtualized | In case of false value, rendering of boxes will work with a lazy render concept which means each box will be rendered one time | boolean | true | no |
+| viewportHeight | Height of viewport can be all CSS acceptable units for the height property | string | '100%' | no |
+| viewportWidth | Width of viewport can be all CSS acceptable units for the width property | string | '100%' | no |
+| boxGap | Gap between boxes can be all CSS acceptable units for the padding property | number | 0 | no |
 
 ## Demos
 Here's a boxes with random positions and sizes [Code Sandbox demo](https://codesandbox.io/s/elegant-snowflake-ddtk4z?file=/src/components/VisualizableContent.js) rendered by lazy render concept. (Dataset size 1.000.000 boxes)<br/>
