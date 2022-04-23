@@ -2,7 +2,7 @@
 name: Feature request
 about: Suggest an idea for this component
 title: ''
-labels: type / feature
+labels: type / enhancement
 assignees: ''
 ---
 
