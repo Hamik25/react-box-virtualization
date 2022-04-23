@@ -14,6 +14,10 @@ assignees: ''
 
 <!-- Steps to reproduce. -->
 
+### Actual behavior
+
+<!-- Fill in actual behavior.  -->
+
 ### Expected behavior
 
 <!-- Fill in expected behavior.  -->
