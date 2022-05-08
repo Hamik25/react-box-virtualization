@@ -19,6 +19,8 @@ export interface BoxVirtualizerProps {
     viewportHeight?: string;
     viewportWidth?: string;
     boxGap?: number;
+    leftScrollPos?: number;
+    topScrollPos?: number;
 }
 
 export interface BoxProps {
@@ -53,3 +55,9 @@ export interface IRectangle {
 }
 
 export type TimeoutID = { id: number | null };
+
+export interface IScrollToOptions {
+    left?: number;
+    top?: number;
+    behavior?: 'auto' | 'smooth' | 'instant';
+}

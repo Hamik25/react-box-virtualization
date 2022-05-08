@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef, memo, FC, ReactElement } from 'react';
 
-import { BoxVirtualizerProps, TimeoutID } from './types';
+import { BoxVirtualizerProps, TimeoutID, IScrollToOptions } from './types';
 
 import Box from './Box';
 import { iterateData } from './utils';
@@ -15,7 +15,9 @@ const BoxVirtualizer: FC<BoxVirtualizerProps> = ({
     isVirtualized = true,
     viewportHeight = '100%',
     viewportWidth = '100%',
-    boxGap = 0
+    boxGap = 0,
+    leftScrollPos,
+    topScrollPos
 }: BoxVirtualizerProps): ReactElement => {
     const scrollTimerIdRef: React.MutableRefObject<TimeoutID> = useRef({ id: null });
     const viewportRef: any = useRef(null);
@@ -26,7 +28,7 @@ const BoxVirtualizer: FC<BoxVirtualizerProps> = ({
 
     const { canvasSize, hashTable } = useMemo(() => iterateData(data, coordinatesMap), [data]);
 
-    function onScroll({ currentTarget }: React.UIEvent<HTMLDivElement>) {
+    function onScroll({ currentTarget }: React.UIEvent<HTMLDivElement>): void {
         if (scrollTimerIdRef.current.id !== null) {
             cancelTimeout(scrollTimerIdRef.current);
         }
@@ -43,7 +45,23 @@ const BoxVirtualizer: FC<BoxVirtualizerProps> = ({
         }, 150);
     }
 
-    function init() {
+    function scrollToCustomPositionsHandler(x: number | undefined, y: number | undefined): void {
+        let options: IScrollToOptions = {
+            behavior: 'auto'
+        };
+
+        if (Number.isInteger(x)) {
+            options.left = x;
+        }
+
+        if (Number.isInteger(y)) {
+            options.top = y;
+        }
+
+        viewportRef.current.scrollTo(options);
+    }
+
+    function init(): void {
         const selectResult = selectNeedfulBoxes(hashTable, {
             viewportHeight: viewportRef.current?.offsetHeight,
             viewportWidth: viewportRef.current?.offsetWidth,
@@ -55,6 +73,10 @@ const BoxVirtualizer: FC<BoxVirtualizerProps> = ({
     }
 
     useEffect(init, [hashTable]);
+
+    useEffect(() => {
+        scrollToCustomPositionsHandler(leftScrollPos, topScrollPos);
+    }, [leftScrollPos, topScrollPos]);
 
     return (
         <div
