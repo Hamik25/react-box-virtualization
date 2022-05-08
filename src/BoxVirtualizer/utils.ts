@@ -52,3 +52,7 @@ export function iterateData(data: any = [], coordinatesMap: ICoordinatesMap) {
 export function isPointInRectangle({ x1, x2, y1, y2 }: IRectangle, { x, y }: IPoint) {
     return x > x1 && x < x2 && y > y1 && y < y2;
 }
+
+export function isFunction(variable: any): boolean {
+    return variable && {}.toString.call(variable) === '[object Function]';
+}

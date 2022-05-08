@@ -1,5 +1,5 @@
 import BoxVirtualizer from './BoxVirtualizer';
-import { ICoordinatesMap } from './BoxVirtualizer/types';
+import { ICoordinatesMap, IScrollEndCallbackObject } from './BoxVirtualizer/types';
 
 export { BoxVirtualizer };
-export type { ICoordinatesMap };
+export type { ICoordinatesMap, IScrollEndCallbackObject };
