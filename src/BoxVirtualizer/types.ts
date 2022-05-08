@@ -23,7 +23,6 @@ export interface BoxVirtualizerProps {
 
 export interface BoxProps {
     boxData: any;
-    coordinatesMap: ICoordinatesMap;
     visualizableContent: React.FC;
     gap: number;
 }
