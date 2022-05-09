@@ -1,9 +1,14 @@
 import React, { useState, useEffect, useMemo, useRef, memo, FC, ReactElement } from 'react';
 
-import { BoxVirtualizerProps, TimeoutID, IScrollToOptions } from './types';
+import {
+    BoxVirtualizerProps,
+    TimeoutID,
+    IScrollEndCallbackObject,
+    IScrollToOptions
+} from './types';
 
 import Box from './Box';
-import { iterateData } from './utils';
+import { iterateData, isFunction } from './utils';
 import { cancelTimeout, requestTimeout } from './timer';
 import { useInViewportArea } from './UseInViewportArea';
 
@@ -16,6 +21,7 @@ const BoxVirtualizer: FC<BoxVirtualizerProps> = ({
     viewportHeight = '100%',
     viewportWidth = '100%',
     boxGap = 0,
+    scrollEndCallback,
     leftScrollPos,
     topScrollPos
 }: BoxVirtualizerProps): ReactElement => {
@@ -33,15 +39,28 @@ const BoxVirtualizer: FC<BoxVirtualizerProps> = ({
             cancelTimeout(scrollTimerIdRef.current);
         }
 
+        const { scrollLeft, scrollTop, offsetHeight, offsetWidth } = currentTarget;
+
         scrollTimerIdRef.current = requestTimeout(() => {
             const selectResult = selectNeedfulBoxes(hashTable, {
                 viewportHeight: currentTarget?.clientHeight,
                 viewportWidth: currentTarget?.clientWidth,
-                scrollLeft: currentTarget?.scrollLeft,
-                scrollTop: currentTarget?.scrollTop
+                scrollLeft,
+                scrollTop
             });
 
             setInViewportBoxes(selectResult);
+
+            if (isFunction(scrollEndCallback)) {
+                scrollEndCallback({
+                    canvasWidth: canvasSize.width,
+                    canvasHeight: canvasSize.height,
+                    canvasScrollLeft: scrollLeft,
+                    canvasScrollTop: scrollTop,
+                    isScrolledToLeftEnd: canvasSize.width === scrollLeft + offsetWidth,
+                    isScrolledToBottomEnd: canvasSize.height === scrollTop + offsetHeight
+                } as IScrollEndCallbackObject);
+            }
         }, 150);
     }
 
