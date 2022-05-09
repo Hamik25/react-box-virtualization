@@ -11,9 +11,10 @@ export default {
     output: [
         {
             file: pkg.main,
-            format: 'cjs',
+            format: 'umd',
             exports: 'named',
-            sourcemap: true
+            sourcemap: true,
+            name: 'react-box-virtualization'
         },
         {
             file: pkg.module,
