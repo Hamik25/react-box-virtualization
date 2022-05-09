@@ -17,7 +17,10 @@
   },
   "keywords": [
     "virtualization",
-    "lazy-evaluation"
+    "lazy-evaluation",
+    "react",
+    "component",
+    "layout"
   ],
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
