@@ -1,4 +1,14 @@
 import React from 'react';
+export interface IScrollEndCallbackObject {
+    canvasWidth: number;
+    canvasHeight: number;
+    canvasScrollLeft: number;
+    canvasScrollTop: number;
+    isScrolledToLeftEnd: boolean;
+    isScrolledToBottomEnd: boolean;
+}
+
+export type IScrollEndCallback = (canvasSpaces: IScrollEndCallbackObject) => void;
 
 export interface ICoordinatesMap {
     x: string;
@@ -19,11 +29,13 @@ export interface BoxVirtualizerProps {
     viewportHeight?: string;
     viewportWidth?: string;
     boxGap?: number;
+    scrollEndCallback?: IScrollEndCallback;
+    leftScrollPos?: number;
+    topScrollPos?: number;
 }
 
 export interface BoxProps {
     boxData: any;
-    coordinatesMap: ICoordinatesMap;
     visualizableContent: React.FC;
     gap: number;
 }
@@ -53,3 +65,9 @@ export interface IRectangle {
 }
 
 export type TimeoutID = { id: number | null };
+
+export interface IScrollToOptions {
+    left?: number;
+    top?: number;
+    behavior?: 'auto' | 'smooth' | 'instant';
+}
