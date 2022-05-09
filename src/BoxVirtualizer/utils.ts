@@ -2,7 +2,7 @@ import { ICoordinatesMap, ICanvasSize, IRectangle, IPoint } from './types';
 
 // @TODO comment of function role and behavior
 // move to helpers and create two functions (keyEncoder - keyDecoder)
-function keyGenerator(item: any): string {
+export function keyGenerator(item: any): string {
     // @TODO need to use more effective serialization/deserialization method like -> msgpack-lite instead of JSON serialization/deserialization
     return JSON.stringify({
         x: { 1: item.visuals.x, 2: item.visuals.x + item.visuals.width },
