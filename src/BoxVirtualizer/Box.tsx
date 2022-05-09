@@ -4,7 +4,6 @@ import { BoxProps } from './types';
 
 const Box: FC<BoxProps> = ({
     boxData,
-    coordinatesMap,
     visualizableContent: Component,
     gap
 }: BoxProps): ReactElement => {
@@ -14,14 +13,14 @@ const Box: FC<BoxProps> = ({
                 position: 'absolute',
                 boxSizing: 'border-box',
                 padding: `${gap}px`,
-                left: `${boxData[coordinatesMap.x]}px`,
-                top: `${boxData[coordinatesMap.y]}px`,
-                width: `${boxData[coordinatesMap.width]}px`,
-                height: `${boxData[coordinatesMap.height]}px`,
-                opacity: `${coordinatesMap.opacity ? boxData[coordinatesMap.opacity] : 1}`
+                left: `${boxData.visuals.x}px`,
+                top: `${boxData.visuals.y}px`,
+                width: `${boxData.visuals.width}px`,
+                height: `${boxData.visuals.height}px`,
+                opacity: `${boxData.visuals.opacity}`
             }}
         >
-            <Component {...boxData} />
+            <Component {...boxData.metadata} />
         </div>
     );
 };

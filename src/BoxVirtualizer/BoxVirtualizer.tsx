@@ -82,7 +82,6 @@ const BoxVirtualizer: FC<BoxVirtualizerProps> = ({
                             key={index}
                             boxData={box}
                             gap={boxGap}
-                            coordinatesMap={coordinatesMap}
                             visualizableContent={visualizableContent}
                         />
                     );
