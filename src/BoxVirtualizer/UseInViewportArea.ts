@@ -1,14 +1,22 @@
 import { useState } from 'react';
 
 import { IPoint, IRectangle } from './types';
-import { isPointInRectangle } from './utils';
+import { isPointInRectangle, keyGenerator } from './utils';
+
+function syncPrevMatchedBoxesWithHashTable(data: any, matchedBoxes: any) {
+    return matchedBoxes.filter((matchedBox: any) => {
+        return data.has(keyGenerator(matchedBox));
+    });
+}
 
 export function useInViewportArea(isVirtualized: boolean) {
     const [matchedBoxes, setMatchedBoxes] = useState<any[]>([]);
     const [inViewportBoxKeysCache, setInViewportBoxKeysCache] = useState<any>(new Map());
 
     function selectNeedfulBoxes(data: any, viewportProps: any) {
-        let result = isVirtualized ? [] : [...matchedBoxes];
+        let result = isVirtualized
+            ? []
+            : [...syncPrevMatchedBoxesWithHashTable(data, matchedBoxes)];
 
         const viewportRectangleCoordinates: IRectangle = {
             x1: viewportProps.scrollLeft,
